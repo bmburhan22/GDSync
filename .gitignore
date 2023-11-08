@@ -1,0 +1,9 @@
+credentials.json
+desktop.ini
+gdtrees.json
+token.json
+.gdinc
+.gdexc
+.vscode/
+gdsyncjunk/
+__pycache__/
