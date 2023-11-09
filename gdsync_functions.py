@@ -202,11 +202,11 @@ def download_file(service, fileid, filepath):
             while done is False:
                 status, done = downloader.next_chunk()
                 print(f"Download {int(status.progress() * 100)}% ({filepath})")
-            #TODO delete if permission error, save each chunk
         return True
     except HttpError as err:
         return notdownloadable(err)
     except:
+        #TODO delete if permission error
         print(filepath, "SOME ERROR IN DOWNLOADING")
         if os.path.isfile(filepath):
             os.remove(filepath)
