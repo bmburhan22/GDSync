@@ -30,7 +30,7 @@ if not creds or not creds.valid:
         with open(TOKEN, "w") as f:
             f.write(creds.to_json())
     except RefreshError as referr:
-        if (referr.args[1]['error']=='invalid_grant'):
+        if (referr.args[1]['error'] in ('invalid_grant', 'deleted_client')):
             os.remove(TOKEN)
 try:
     service = build("drive", "v3", credentials=creds)
@@ -67,6 +67,11 @@ try:
             for d in deletions:
                 del treeset[d]
             json.dump(treeset, open(treesjson, 'w'), indent=4)
+        
+        except RefreshError as referr:
+            if (referr.args[1]['error'] in ('invalid_grant', 'deleted_client')):
+                os.remove(TOKEN)
+                break
         except:
             print_exc()
         time.sleep(sync_delay)
