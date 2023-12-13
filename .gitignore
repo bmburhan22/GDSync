@@ -6,3 +6,4 @@ token.json
 .vscode/
 gdsyncjunk/
 __pycache__/
+*.log
