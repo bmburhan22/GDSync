@@ -1,4 +1,4 @@
-# GDSync
+# <img src="gdsync_logo.svg" align="center" width=40/> GDSync 
 
 Sync files between Google Drive and desktop. Backup from desktop to Google Drive and the other way around. Any changes on one side is mirrored to the other.
 
